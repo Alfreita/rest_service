@@ -4,11 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-
-import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 
 public class Carrinho {
@@ -44,11 +39,11 @@ public class Carrinho {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
-	
+
 	public long getId() {
 		return id;
 	}
-	
+
 	public void remove(long id) {
 		for (Iterator iterator = produtos.iterator(); iterator.hasNext();) {
 			Produto produto = (Produto) iterator.next();
@@ -57,7 +52,7 @@ public class Carrinho {
 			}
 		}
 	}
-	
+
 	public void troca(Produto produto) {
 		remove(produto.getId());
 		adiciona(produto);
@@ -72,9 +67,15 @@ public class Carrinho {
 			}
 		}
 	}
-	
+
 	public List<Produto> getProdutos() {
 		return produtos;
 	}
+
+  public String toXml() {
+    // TODO Auto-generated method stub
+    return new XStream().toXML(this);
+
+  }
 
 }
