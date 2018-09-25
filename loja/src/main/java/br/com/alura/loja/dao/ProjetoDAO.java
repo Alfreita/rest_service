@@ -13,8 +13,8 @@ public class ProjetoDAO {
     private static AtomicLong contador = new AtomicLong(1);
 
     static {
-        banco.put(1l, new Projeto(1l, "Minha loja", 2014));
-        banco.put(2l, new Projeto(2l, "Alura", 2012));
+        banco.put(1l, new Projeto("Minha loja", 1l, 2014));
+        banco.put(2l, new Projeto("Alura", 2l, 2012));
     }
 
     public void adiciona(Projeto projeto) {
